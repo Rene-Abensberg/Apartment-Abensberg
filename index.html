@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apartment Abensberg – Warm & gemütlich</title>
+
+    <style>
+        :root {
+            --warm-bg: #f7f3ee;        /* warmes Beige */
+            --warm-box: #ffffff;       /* weiße Boxen */
+            --warm-accent: #d08b5b;    /* Terracotta */
+            --warm-text: #4a3f35;      /* weiches Dunkelbraun */
+            --warm-muted: #8a7a6a;     /* dezenter Text */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--warm-text);
+            background: var(--warm-bg);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 60px;
+            background: var(--warm-box);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid #e3d8cc;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 14px;
+            color: var(--warm-accent);
+        }
+
+        .header nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--warm-text);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .header nav a:hover {
+            color: var(--warm-accent);
+        }
+
+        .hero {
+            height: 55vh;
+            background: linear-gradient(
+                rgba(0,0,0,0.25),
+                rgba(0,0,0,0.25)
+            ), url("bilder/hero.avif") center/cover no-repeat;
+            margin: 30px 300px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .hero-text {
+            background: rgba(255,255,255,0.9);
+            padding: 24px 28px;
+            border-radius: 18px;
+            max-width: 420px;
+        }
+
+        .hero-text h1 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            color: var(--warm-text);
+        }
+
+        .hero-text p {
+            margin: 0;
+            color: var(--warm-muted);
+            line-height: 1.5;
+        }
+
+        .buttons {
+            margin-top: 18px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .primary {
+            background: var(--warm-accent);
+            color: white;
+        }
+
+        .secondary {
+            background: #e9dfd4;
+            color: var(--warm-text);
+        }
+
+        .section {
+            padding: 30px 0;
+        }
+
+        .section-inner {
+            margin: 0 200px;
+        }
+
+        .section h2 {
+            font-size: 26px;
+            margin-bottom: 16px;
+            color: var(--warm-text);
+        }
+
+        .section-subtitle {
+            color: var(--warm-muted);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .apartment-box {
+            background: var(--warm-box);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+        }
+
+        .apartment-box p {
+            line-height: 1.7;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .fact {
+            background: var(--warm-box);
+            padding: 16px;
+            border-radius: 16px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+            font-size: 14px;
+            color: var(--warm-muted);
+        }
+
+        .fact strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--warm-text);
+        }
+
+        .ausstattung-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .ausstattung-box {
+            background: var(--warm-box);
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .ausstattung-box h3 {
+            margin: 0 0 10px;
+            color: var(--warm-accent);
+            font-size: 18px;
+        }
+
+        .ausstattung-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--warm-text);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .ausstattung-box ul li::before {
+            content: "• ";
+            color: var(--warm-accent);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: cover;
+            height: 180px;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 26px rgba(0,0,0,0.12);
+        }
+
+        .lage-box {
+            background: var(--warm-box);
+            padding: 22px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .lage-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            color: var(--warm-text);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .kontakt-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .kontakt-form {
+            background: var(--warm-box);
+            padding: 22px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .kontakt-form label {
+            font-size: 14px;
+            color: var(--warm-text);
+        }
+
+        .kontakt-form input,
+        .kontakt-form textarea {
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid #d6c7b8;
+            background: var(--warm-bg);
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .kontakt-form button {
+            margin-top: 6px;
+            align-self: flex-start;
+        }
+
+        .kontakt-info {
+            background: var(--warm-box);
+            padding: 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            font-size: 14px;
+            color: var(--warm-text);
+            line-height: 1.7;
+        }
+
+        .kontakt-info strong {
+            color: var(--warm-accent);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 18px;
+            background: #e0d2c3;
+            color: var(--warm-text);
+            font-size: 13px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 1100px) {
+            .hero {
+                margin: 20px 40px;
+            }
+            .section-inner {
+                margin: 0 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 12px 20px;
+            }
+            .hero {
+                margin: 16px 20px;
+                height: auto;
+                padding: 24px;
+            }
+            .hero-text {
+                max-width: 100%;
+            }
+            .section-inner {
+                margin: 0 20px;
+            }
+            .kontakt-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">Apartment Abensberg</div>
+    <nav>
+        <a href="#apartment">Apartment</a>
+        <a href="#ausstattung">Ausstattung</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#lage">Lage</a>
+        <a href="#preise">Preise</a>   <!-- HIER eingefügt -->
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Warm. Gemütlich. Ankommen in Abensberg.</h1>
+            <p>Ein liebevoll eingerichtetes 1‑Zimmer‑Apartment mit warmen Farben, ruhiger Lage und allem, was man zum Wohlfühlen braucht.</p>
+            <div class="buttons">
+                <a href="#kontakt" class="btn primary">Anfrage senden</a>
+                <a href="#galerie" class="btn secondary">Bilder ansehen</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="apartment" class="section">
+        <div class="section-inner">
+            <h2>🛏️ Das Apartment</h2>
+            <p class="section-subtitle">Ein ruhiger Rückzugsort mit warmen Farben und durchdachter Einrichtung.</p>
+
+            <div class="apartment-box">
+                <p>
+                    Das  41m² 1‑Zimmer‑Apartment in Abensberg bietet eine gemütliche Kombination aus Wohn‑, Schlaf‑ und Essbereich.
+                    Warme Materialien, dezente Beleuchtung und eine klare Struktur sorgen dafür, dass man sich vom ersten Moment an wohlfühlt –
+                    egal ob für ein Wochenende, eine Geschäftsreise oder einen längeren Aufenthalt.
+                </p>
+
+                <div class="facts">
+                    <div class="fact">
+                        <strong>Größe & Aufteilung</strong>
+                        1‑Zimmer‑Studio mit Wohn‑/Schlafbereich, Küchenzeile und Bad.
+                    </div>
+                    <div class="fact">
+                        <strong>Geeignet für</strong>
+                        1–2 Personen, ideal für Geschäftsreisende und Urlauber.
+                    </div>
+                    <div class="fact">
+                        <strong>Lage</strong>
+                        Ruhige Wohngegend, gut angebunden und zentrumsnah.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ausstattung" class="section">
+        <div class="section-inner">
+            <h2>🧺 Ausstattung</h2>
+            <p class="section-subtitle">Alles da, was man für einen entspannten Aufenthalt braucht.</p>
+
+            <div class="ausstattung-grid">
+                <div class="ausstattung-box">
+                    <h3>🛏️ Schlafbereich</h3>
+                    <ul>
+                        <li>Bequemes Bett</li>
+                        <li>Frische Bettwäsche</li>
+                        <li>Stauraum für Kleidung</li>
+                        <li>Angenehme Beleuchtung</li>
+                    </ul>
+                </div>
+
+                <div class="ausstattung-box">
+                    <h3>🍽️ Küche</h3>
+                    <ul>
+                        <li>Kochgelegenheit & Kühlschrank</li>
+                        <li>Kaffeemaschine</li>
+                        <li>Geschirr & Besteck</li>
+                        <li>Grundausstattung für den Alltag</li>
+                    </ul>
+                </div>
+
+                <div class="ausstattung-box">
+                    <h3>🚿 Bad</h3>
+                    <ul>
+                        <li>Dusche</li>
+                        <li>Handtücher</li>
+                        <li>Spiegel & Ablage</li>
+                        <li>Föhn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galerie" class="section">
+        <div class="section-inner">
+            <h2>🖼 Galerie</h2>
+            <p class="section-subtitle">Einblicke in das Apartment und die Atmosphäre vor Ort.</p>
+
+            <div class="gallery">
+                <img src="bilder/zimmer.avif" alt="Zimmer" />
+                <img src="bilder/bad.avif" alt="Bad" />
+                <img src="bilder/garten.avif" alt="Garten" />
+                <img src="bilder/schlafen.avif" alt="Schlafbereich" />
+                <img src="bilder/flur.avif" alt="Flur" />
+            </div>
+        </div>
+    </section>
+
+    <section id="lage" class="section">
+        <div class="section-inner">
+            <h2>📍 Lage</h2>
+            <p class="section-subtitle">Ruhig gelegen und trotzdem gut angebunden.</p>
+
+            <div class="lage-box">
+                <p>
+                    Das Apartment befindet sich in einer ruhigen Wohngegend von Abensberg. Von hier aus sind sowohl das Zentrum
+                    als auch wichtige Punkte des täglichen Bedarfs gut erreichbar.
+                </p>
+                <ul>
+                    <li>🚶 Kurze Wege zu Einkaufsmöglichkeiten</li>
+                    <li>🚗 Gute Anbindung an die Umgebung</li>
+                    <li>🍺 Sehenswürdigkeiten wie der Kuchlbauer Turm in der Nähe</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+<section id="preise" class="section">
+    <div class="section-inner">
+        <h2>💶 Preise</h2>
+        <p class="section-subtitle">Transparente und faire Preise für Ihren Aufenthalt.</p>
+
+        <div class="lage-box" style="margin-bottom: 20px;">
+            <p>
+                Das Apartment bietet eine warme, gemütliche Atmosphäre und ist ideal für kurze und längere Aufenthalte.
+                Die Preise variieren je nach Saison und Aufenthaltsdauer.
+            </p>
+        </div>
+
+        <div class="ausstattung-grid">
+            <div class="ausstattung-box">
+                <h3>🌙 Übernachtungspreis</h3>
+                <ul>
+                    <li>Standardpreis: <strong>xx € pro Nacht</strong></li>
+                    <li>inkl. WLAN, Bettwäsche, Handtücher</li>
+                    <li>inkl. Endreinigung</li>
+                </ul>
+            </div>
+
+            <div class="ausstattung-box">
+                <h3>📅 Langzeitaufenthalte</h3>
+                <ul>
+                    <li>ab 7 Nächten: <strong>Rabatt möglich</strong></li>
+                    <li>ab 30 Nächten: <strong>individuelle Preise</strong></li>
+                </ul>
+            </div>
+
+            <div class="ausstattung-box">
+                <h3>🧾 Zusatzinformationen</h3>
+                <ul>
+                    <li>Check‑in flexibel nach Absprache</li>
+                    <li>Keine Haustiere</li>
+                    <li>Rauchen nicht erlaubt</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="kontakt" class="section">
+        <div class="section-inner">
+            <h2>✉️ Kontakt & Anfrage</h2>
+            <p class="section-subtitle">Bei Interesse oder Fragen einfach kurz melden.</p>
+
+            <div class="kontakt-grid">
+                <form class="kontakt-form">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" placeholder="Ihr Name" />
+
+                    <label for="email">E-Mail</label>
+                    <input id="email" type="email" placeholder="Ihre E-Mail-Adresse" />
+
+                    <label for="nachricht">Nachricht</label>
+                    <textarea id="nachricht" rows="4" placeholder="Ihre Anfrage oder gewünschter Zeitraum"></textarea>
+
+                    <button type="submit" class="btn primary">Nachricht senden</button>
+                </form>
+
+                <div class="kontakt-info">
+                    <p><strong>Direkter Kontakt</strong></p>
+                    <p>
+                        Schreiben Sie mir einfach eine kurze Nachricht mit Ihrem gewünschten Zeitraum
+                        und der Anzahl der Personen. Ich melde mich so schnell wie möglich zurück.
+                    </p>
+                    <p>
+                        Auf Anfrage erhalten Sie auch den Link zur Buchung über Plattformen wie Airbnb.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        © Apartment Abensberg – Warm & gemütlich
+    </footer>
+
+</body>
+</html>
