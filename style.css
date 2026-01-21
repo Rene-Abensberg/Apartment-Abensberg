@@ -1,4 +1,5 @@
 
+
         :root {
             --warm-bg: #f7f3ee;        /* warmes Beige */
             --warm-box: #ffffff;       /* weiße Boxen */
@@ -317,18 +318,23 @@
                 padding: 12px 20px;
             }
             .hero {
-                margin: 16px 20px;
-                height: auto;
-                padding: 24px;
-            }
-            .hero-text {
-                max-width: 100%;
-            }
-            .section-inner {
-                margin: 0 20px;
-            }
-            .kontakt-grid {
-                grid-template-columns: 1fr;
-            }
+    margin: 16px 20px;
+    height: auto;
+    padding: 24px;
+    background: none; /* falls du den Hintergrund entfernen willst */
+}
+
+.hero-text {
+    max-width: 100%;
+}
+
+.section-inner {
+    margin: 0 20px;
+}
+
+.kontakt-grid {
+    grid-template-columns: 1fr;
+}
+           
         }
     
