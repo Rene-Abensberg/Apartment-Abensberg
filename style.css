@@ -240,10 +240,14 @@ body {
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
+    gap: 12px;
 }
 
-..gallery img {
+.gallery a {
+    display: block;
+}
+
+.gallery img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -254,6 +258,7 @@ body {
 .gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
 }
 
 /* ============================= */
