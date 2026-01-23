@@ -278,7 +278,11 @@ body {
     color: var(--warm-text);
     font-size: 14px;
     line-height: 1.7;
-}
+}<div class="lage-block">
+    <h2>Lage</h2>
+    <p>Ruhig gelegen und trotzdem gut angebunden...</p>
+    <p>🚶 Kurze Wege ...</p>
+</div>
 
 /* ============================= */
 /*            KONTAKT            */
