@@ -160,6 +160,8 @@
             </p>
         </div>
 
+
+
         <div class="ausstattung-grid">
             <div class="ausstattung-box">
                 <h3>🌙 Übernachtungspreis</h3>
@@ -189,25 +191,32 @@
         </div>
     </div>
 </section>
+<section id="kontakt" class="section">
+    <div class="section-inner">
+        <h2>✉️ Kontakt & Anfrage</h2>
+        <p class="section-subtitle">Bei Interesse oder Fragen einfach kurz melden.</p>
 
-    <section id="kontakt" class="section">
-        <div class="section-inner">
-            <h2>✉️ Kontakt & Anfrage</h2>
-            <p class="section-subtitle">Bei Interesse oder Fragen einfach kurz melden.</p>
+        <div class="kontakt-grid">
 
-            <div class="kontakt-grid">
-                <form class="kontakt-form">
-                    <label for="name">Name</label>
-                    <input id="name" type="text" placeholder="Ihr Name" />
+            <form action="https://formspree.io/f/mdaegzbq" method="POST" class="kontakt-form">
 
-                    <label for="email">E-Mail</label>
-                    <input id="email" type="email" placeholder="Ihre E-Mail-Adresse" />
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" placeholder="Ihr Name" required>
 
-                    <label for="nachricht">Nachricht</label>
-                    <textarea id="nachricht" rows="4" placeholder="Ihre Anfrage oder gewünschter Zeitraum"></textarea>
+                <label for="email">E-Mail</label>
+                <input id="email" type="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
 
-                    <button type="submit" class="btn primary">Nachricht senden</button>
-                </form>
+                <label for="nachricht">Nachricht</label>
+                <textarea id="nachricht" name="message" rows="4" placeholder="Ihre Anfrage oder gewünschter Zeitraum" required></textarea>
+
+                <button type="submit" class="btn primary">Nachricht senden</button>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+   
 
                 <div class="kontakt-info">
                     <p><strong>Direkter Kontakt</strong></p>
